@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Semana5.Vistas.RegistroBDD"
+             Title="RegistroBDD">
+    <VerticalStackLayout Spacing="20" Padding="25">
+
+        <Label x:Name="lblUsuario"
+                TextColor="Red"
+                HorizontalTextAlignment="End"/>
+
+        <Image Source="https://sbsconsulting.com.ec/wp-content/uploads/2018/01/LOGO-UISRAEL-768x209.png"/>
+
+        <Label 
+            Text="Registro BDD"
+            FontSize="22"
+            TextColor="Blue"
+            HorizontalTextAlignment="Center"/>
+        
+        <Entry x:Name="txtNombre"
+                   Placeholder="Ingrese Nombre"/>
+
+        <Grid Padding="5" RowSpacing="1" ColumnSpacing="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text ="CRUD Personas"
+                   TextColor="Red"
+                   Grid.Row="0"
+                   Grid.Column="0"/>
+            
+            <Button x:Name="btnAgregar"
+                    Text="Agregar Persona"
+                    Clicked="btnAgregar_Clicked"
+                   Grid.Row="1"
+                   Grid.Column="0"/>
+            
+            <Button x:Name="btnMostrar"
+                    Text="Mostrar Persona"
+                    Clicked="btnMostrar_Clicked"
+                   Grid.Row="2"
+                   Grid.Column="0"/>
+
+            <Entry x:Name="txtID"
+                   Placeholder="Ingrese Id de persona a Editar/Eliminar"
+                   Grid.Row="3"
+                   Grid.Column="0"/>
+
+            <Button x:Name="btnEliminar"
+                    Text="Eliminar Persona"
+                    Clicked="btnEliminar_Clicked"                    
+                    Grid.Row="4"
+                    Grid.Column="0"/>
+
+            <Button x:Name="btnActualizar"
+                    Text="Actualizar Persona"
+                    Clicked="btnActualizar_Clicked"                   
+                    Grid.Row="5"
+                    Grid.Column="0"/>
+
+            <Label x:Name="lblStatusMessage"
+                TextColor="Red"
+                   Grid.Row="6"
+                   Grid.Column="0"/>
+
+            <CollectionView x:Name="listaPersona" 
+                   Grid.Row="7"
+                   Grid.Column="0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text= "{Binding Id}"
+                                   Grid.Row="0"
+                                   Grid.Column="0"/>
+                            <Label Text="{Binding Name}" 
+                                   Grid.Row="0"
+                                   Grid.Column="1"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
